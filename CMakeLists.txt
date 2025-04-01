@@ -14,7 +14,6 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 include_directories(
-    ${CMAKE_SOURCE_DIR}/wrapper
     ${CMAKE_SOURCE_DIR}/libdeflate
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/.
@@ -59,7 +58,7 @@ endforeach()
 
 # ==== SIMD test ====
 add_executable(PretextGraph
-    wrapper/SIMDExtensionWrapper.cpp
+    SIMDExtensionWrapper.cpp
 )
 target_compile_definitions(PretextGraph PRIVATE ProgramName="PretextGraph")
 
