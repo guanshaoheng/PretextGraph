@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.20)
 project(
     PretextGraph 
     LANGUAGES CXX C
-    VERSION 0.0.8
+    VERSION 0.0.9
 )
 
 add_compile_definitions(PV="${PROJECT_VERSION}")
@@ -66,3 +66,27 @@ target_compile_definitions(PretextGraph PRIVATE ProgramName="PretextGraph")
 include(CTest)
 enable_testing()
 add_test(NAME TEST COMMAND "PretextGraph")
+
+# ==== Pack ====
+
+
+set(CPACK_SOURCE_GENERATOR "TGZ")
+set(CPACK_SOURCE_IGNORE_FILES
+  ".*/build_cmake/;"
+  ".*/builddir/;"
+  ".*/data_for_test/;"
+  ".*/logs/;"
+  ".*/test_py/;"
+  ".*/pretext_test$;"
+  ".*/PretextGraph$;"
+  ".*/test$;"
+  "/\\\\.git/;"
+  "/\\\\.vscode/;"
+  "\\\\.swp$;"
+  "\\\\.user$;"
+  "\\\\.DS_Store$;"
+)
+message(STATUS "CPack ignored files: ${CPACK_SOURCE_IGNORE_FILES}")
+include(CPack)
+
+
