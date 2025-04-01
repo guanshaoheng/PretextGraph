@@ -212,7 +212,7 @@ MainArgs
             if (exeStrip) stbsp_snprintf(buffer, sizeof(buffer), "%s.%s.exe", ArgBuffer[0], ent->extName);
             else stbsp_snprintf(buffer, sizeof(buffer), "%s.%s", ArgBuffer[0], ent->extName);
 #else
-            stbsp_snprintf(buffer, sizeof(buffer), "%s.%s", ArgBuffer[0], ent->extName);
+            snprintf(buffer, sizeof(buffer), "%s.%s", ArgBuffer[0], ent->extName);
 #endif       
             if (!system(buffer))
             {
